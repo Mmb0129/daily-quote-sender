@@ -90,9 +90,9 @@ SMTP_SERVER = "smtp.gmail.com"
 SMTP_PORT = 587
 
 # Get credentials from environment variables
-EMAIL = os.getenv("SMTP_EMAIL")  # Your email from environment variable
-PASSWORD = os.getenv("SMTP_PASSWORD")  # Your app password from environment variable
-RECIPIENT = os.getenv("SMTP_RECIPIENT")  # Recipient's email from environment variable
+EMAIL = os.getenv("EMAIL")  # Your email from environment variable
+PASSWORD = os.getenv("PASSWORD")  # Your app password from environment variable
+RECIPIENT = os.getenv("RECIPIENT")  # Recipient's email from environment variable
 
 def send_email(quote):
     try:
