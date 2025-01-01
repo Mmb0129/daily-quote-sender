@@ -133,7 +133,8 @@ def send_email(quote):
                     <p style="color: #777;">Stay positive and keep pushing forward!</p>
                     <hr style="border: 0; border-top: 1px solid #ddd; margin: 20px 0;">
                     <footer>
-                        <p style="color: #888; font-size: 14px;">This email was automatically sent by your Daily Motivation Bot.</p>
+                        <p style="color: #888; font-size: 14px;">This email was automatically sent by your VetriBot Motivation.</p>
+                        <p style="color: #888; font-size: 14px;"><br>MMM Info Tech</p>
                     </footer>
                 </div>
             </body>
