@@ -143,14 +143,14 @@ def send_email(quote):
         # Attach the HTML message to the email
         msg.attach(MIMEText(message, 'html', 'utf-8'))
         
-        # Send the email to multiple recipients
+        # Send the email to the recipients (use Bcc for multiple recipients)
         with smtplib.SMTP(SMTP_SERVER, SMTP_PORT) as server:
             server.starttls()
             server.login(EMAIL, PASSWORD)
-            for recipient in RECIPIENTS:
-                msg['To'] = recipient
-                server.sendmail(EMAIL, recipient, msg.as_string())
-                print(f"Email sent successfully to {recipient}.")
+            msg['To'] = RECIPIENTS[0]  # Only put the first recipient in 'To'
+            msg['Bcc'] = ', '.join(RECIPIENTS)  # Add all recipients in the 'Bcc' field
+            server.sendmail(EMAIL, RECIPIENTS, msg.as_string())
+            print(f"Email sent successfully to {', '.join(RECIPIENTS)}.")
 
     except Exception as e:
         print(f"Failed to send email: {e}")
