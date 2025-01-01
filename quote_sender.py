@@ -2,7 +2,7 @@ import smtplib
 import random
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
-import os
+import os    
 
 # Replace with your own quotes or load from an external file
 QUOTES = [
@@ -11,95 +11,113 @@ QUOTES = [
     "Act as if what you do makes a difference. It does. - William James",
     "Success is not final, failure is not fatal: It is the courage to continue that counts. - Winston Churchill",
     "What lies behind us and what lies before us are tiny matters compared to what lies within us. - Ralph Waldo Emerson",
-    "Do not wait; the time will never be 'just right.' Start where you stand. - Napoleon Hill",
     "The only way to do great work is to love what you do. - Steve Jobs",
     "Dream big and dare to fail. - Norman Vaughan",
     "It always seems impossible until it’s done. - Nelson Mandela",
-    "Don't watch the clock; do what it does. Keep going. - Sam Levenson",
     "The future belongs to those who believe in the beauty of their dreams. - Eleanor Roosevelt",
     "You miss 100% of the shots you don’t take. - Wayne Gretzky",
     "Hardships often prepare ordinary people for an extraordinary destiny. - C.S. Lewis",
-    "Keep your face always toward the sunshine, and shadows will fall behind you. - Walt Whitman",
+    "Do not wait; the time will never be 'just right.' Start where you stand. - Napoleon Hill",
     "The only limit to our realization of tomorrow is our doubts of today. - Franklin D. Roosevelt",
     "Happiness is not something ready-made. It comes from your own actions. - Dalai Lama",
-    "Turn your wounds into wisdom. - Oprah Winfrey",
-    "If you want to lift yourself up, lift up someone else. - Booker T. Washington",
     "I can do all things through Christ who strengthens me. - Philippians 4:13",
-    "Believe in yourself and all that you are. - Christian D. Larson",
-    "The best way to predict the future is to create it. - Abraham Lincoln",
-    "Don’t let yesterday take up too much of today. - Will Rogers",
-    "Life is 10% what happens to us and 90% how we react to it. - Charles R. Swindoll",
-    "You are braver than you believe, stronger than you seem, and smarter than you think. - A.A. Milne",
-    "With the new day comes new strength and new thoughts. - Eleanor Roosevelt",
-    "Failure will never overtake me if my determination to succeed is strong enough. - Og Mandino",
-    "We may encounter many defeats, but we must not be defeated. - Maya Angelou",
-    "Your time is limited, don’t waste it living someone else’s life. - Steve Jobs",
-    "Do what you can, with what you have, where you are. - Theodore Roosevelt",
-    "Success usually comes to those who are too busy to be looking for it. - Henry David Thoreau",
-    "Opportunities don't happen. You create them. - Chris Grosser",
-    "Don't be afraid to give up the good to go for the great. - John D. Rockefeller",
-    "Success is walking from failure to failure with no loss of enthusiasm. - Winston Churchill",
-    "The way to get started is to quit talking and begin doing. - Walt Disney",
-    "I find that the harder I work, the more luck I seem to have. - Thomas Jefferson",
-    "Don’t wish it were easier. Wish you were better. - Jim Rohn",
-    "The man who has confidence in himself gains the confidence of others. - Hasidic Proverb",
-    "The only place where success comes before work is in the dictionary. - Vidal Sassoon",
-    "You can’t cross the sea merely by standing and staring at the water. - Rabindranath Tagore",
-    "A person who never made a mistake never tried anything new. - Albert Einstein",
-    "Only put off until tomorrow what you are willing to die having left undone. - Pablo Picasso",
-    "It does not matter how slowly you go as long as you do not stop. - Confucius",
-    "Setting goals is the first step in turning the invisible into the visible. - Tony Robbins",
-    "Quality is not an act, it is a habit. - Aristotle",
     "For I know the plans I have for you, declares the Lord, plans to prosper you and not to harm you, plans to give you hope and a future. - Jeremiah 29:11",
-    "If you genuinely want something, don’t wait for it—teach yourself to be impatient. - Gurbaksh Chahal",
-    "All progress takes place outside the comfort zone. - Michael John Bobak",
-    "Challenges are what make life interesting, and overcoming them is what makes life meaningful. - Joshua J. Marine",
-    "The journey of a thousand miles begins with one step. - Lao Tzu",
-    "If you can dream it, you can achieve it. - Zig Ziglar",
-    "Start where you are. Use what you have. Do what you can. - Arthur Ashe",
-    "Strive not to be a success, but rather to be of value. - Albert Einstein",
-    "Do not go where the path may lead, go instead where there is no path and leave a trail. - Ralph Waldo Emerson",
-    "In the middle of every difficulty lies opportunity. - Albert Einstein",
-    "Everything you’ve ever wanted is on the other side of fear. - George Addair",
-    "Whether you think you can or you think you can’t, you’re right. - Henry Ford",
-    "What you get by achieving your goals is not as important as what you become by achieving your goals. - Zig Ziglar",
-    "The best revenge is massive success. - Frank Sinatra",
-    "Failure is simply the opportunity to begin again, this time more intelligently. - Henry Ford",
-    "Don’t count the days, make the days count. - Muhammad Ali",
-    "It’s not whether you get knocked down, it’s whether you get up. - Vince Lombardi",
-    "Motivation is what gets you started. Habit is what keeps you going. - Jim Ryun",
-    "Success is how high you bounce when you hit bottom. - George S. Patton",
-    "Do what you feel in your heart to be right – for you’ll be criticized anyway. - Eleanor Roosevelt",
     "The Lord is my shepherd; I shall not want. - Psalm 23:1",
-    "To see what is right and not do it is a lack of courage. - Confucius",
-    "Even if you’re on the right track, you’ll get run over if you just sit there. - Will Rogers",
-    "People who are crazy enough to think they can change the world are the ones who do. - Rob Siltanen",
-    "Don’t be pushed around by the fears in your mind. Be led by the dreams in your heart. - Roy T. Bennett",
-    "Action is the foundational key to all success. - Pablo Picasso",
-    "Every moment is a fresh beginning. - T.S. Eliot",
-    "Do one thing every day that scares you. - Eleanor Roosevelt",
-    "Your passion is waiting for your courage to catch up. - Isabelle Lafleche",
-    "Great things never come from comfort zones. - Anonymous",
-    "What we achieve inwardly will change outer reality. - Plutarch",
-    "Don’t let the fear of losing be greater than the excitement of winning. - Robert Kiyosaki",
-    "The secret of getting ahead is getting started. - Mark Twain"
+    "And we know that in all things God works for the good of those who love him. - Romans 8:28",
+    "Be strong and courageous. Do not be afraid; do not be discouraged, for the Lord your God will be with you wherever you go. - Joshua 1:9",
+    "Trust in the Lord with all your heart and lean not on your own understanding. - Proverbs 3:5-6",
+    "As iron sharpens iron, so one person sharpens another. - Proverbs 27:17",
+    "The pain you feel today will be the strength you feel tomorrow. - Anonymous",
+    "Start where you are. Use what you have. Do what you can. - Arthur Ashe",
+    "Quality is not an act, it is a habit. - Aristotle",
+    "Opportunities don't happen. You create them. - Chris Grosser",
+    "Do not go where the path may lead, go instead where there is no path and leave a trail. - Ralph Waldo Emerson",
+    "You don’t have to be great to start, but you have to start to be great. - Zig Ziglar",
+    "Do not be afraid of growing slowly; be afraid only of standing still. - Indian Proverb",
+    "A journey of a thousand miles begins with a single step. - Lao Tzu",
+    "Life is 10% what happens to us and 90% how we react to it. - Charles R. Swindoll",
+    "Don’t let yesterday take up too much of today. - Will Rogers",
+    "If you stand straight, do not fear a crooked shadow. - Indian Proverb",
+    "An ounce of practice is worth more than tons of preaching. - Mahatma Gandhi",
+    "When the character of a man is not clear to you, look at his friends. - Indian Proverb",
+    "Success usually comes to those who are too busy to be looking for it. - Henry David Thoreau",
+    "Be like the lotus: trust in the light, grow through the dirt, believe in new beginnings. - Indian Proverb",
+    "Faith is taking the first step even when you don’t see the whole staircase. - Martin Luther King Jr.",
+    "He who kneels before God can stand before anyone. - Anonymous",
+    "God is our refuge and strength, an ever-present help in trouble. - Psalm 46:1",
+    "A tree with strong roots laughs at storms. - Indian Proverb",
+    "A bird sitting on a tree is never afraid of the branch breaking, because her trust is not in the branch but in her own wings. - Indian Proverb",
+    "Blessed is the one who perseveres under trial because, having stood the test, that person will receive the crown of life. - James 1:12",
+    "When you walk through the fire, you will not be burned; the flames will not set you ablaze. - Isaiah 43:2",
+    "Peace I leave with you; my peace I give you. I do not give to you as the world gives. Do not let your hearts be troubled and do not be afraid. - John 14:27",
+    "There is no shortcut for hard work that leads to effectiveness. - Indian Proverb",
+    "Many are the plans in a person’s heart, but it is the Lord’s purpose that prevails. - Proverbs 19:21",
+    "Patience is bitter, but its fruit is sweet. - Indian Proverb",
+    "He who walks with the wise grows wise, but a companion of fools suffers harm. - Proverbs 13:20",
+    "The best time to plant a tree was twenty years ago. The second best time is now. - Chinese Proverb",
+    "It is not how much we do, but how much love we put into what we do that matters. - Mother Teresa",
+    "Do not be quick with your mouth, do not be hasty in your heart to utter anything before God. God is in heaven, and you are on earth, so let your words be few. - Ecclesiastes 5:2",
+    "What the superior man seeks is in himself; what the small man seeks is in others. - Confucius",
+    "When the winds of change blow, some build walls while others build windmills. - Chinese Proverb",
+    "Train up a child in the way he should go, and when he is old, he will not depart from it. - Proverbs 22:6",
+    "A diamond is a piece of coal that handled stress exceptionally well. - Indian Proverb",
+    "Faith does not make things easy, it makes them possible. - Luke 1:37",
+    "You reap what you sow. - Galatians 6:7",
+    "Wisdom is better than weapons of war. - Ecclesiastes 9:18",
+    "He who has health has hope, and he who has hope has everything. - Indian Proverb",
+    "Do not store up for yourselves treasures on earth, where moths and vermin destroy, and where thieves break in and steal. - Matthew 6:19",
+    "As water reflects the face, so one’s life reflects the heart. - Proverbs 27:19",
+    "When God gives you a new beginning, do not repeat the old mistakes. - Anonymous",
+    "The early bird catches the worm, but the second mouse gets the cheese. - Indian Proverb",
+    "Success is not final, failure is not fatal: It is the courage to continue that counts. - Winston Churchill", 
+    "The only way to do great work is to love what you do. - Steve Jobs", 
+    "The future belongs to those who believe in the beauty of their dreams. - Eleanor Roosevelt", 
+    "Hardships often prepare ordinary people for an extraordinary destiny. - C.S. Lewis", 
+    "Start where you are. Use what you have. Do what you can. - Arthur Ashe", 
+    "Don't watch the clock; do what it does. Keep going. - Sam Levenson", 
+    "Keep your face always toward the sunshine—and shadows will fall behind you. - Walt Whitman", 
+    "It always seems impossible until it’s done. - Nelson Mandela", 
+    "Don't limit your challenges. Challenge your limits. - Anonymous", 
+    "The best time to plant a tree was 20 years ago. The second best time is now. - Chinese Proverb", 
+    "Success is how high you bounce when you hit bottom. - George S. Patton", 
+    "Believe in yourself and all that you are. Know that there is something inside you that is greater than any obstacle. - Christian D. Larson", 
+    "If you want to fly, you have to give up what weighs you down. - Roy T. Bennett", 
+    "Dream big and dare to fail. - Norman Vaughan", 
+    "The harder you work for something, the greater you’ll feel when you achieve it. - Anonymous", 
+    "Don't wait. The time will never be just right. - Napoleon Hill", 
+    "You miss 100% of the shots you don't take. - Wayne Gretzky", 
+    "The only place where success comes before work is in the dictionary. - Vidal Sassoon", 
+    "You don’t have to be great to start, but you have to start to be great. - Zig Ziglar", 
+    "The only limit to our realization of tomorrow will be our doubts of today. - Franklin D. Roosevelt", 
+    "It does not matter how slowly you go, as long as you do not stop. - Confucius", 
+    "Don’t be pushed by your problems. Be led by your dreams. - Ralph Waldo Emerson", 
+    "What you get by achieving your goals is not as important as what you become by achieving your goals. - Zig Ziglar", 
+    "Believe you can and you’re halfway there. - Theodore Roosevelt", 
+    "What lies behind us and what lies before us are tiny matters compared to what lies within us. - Ralph Waldo Emerson", 
+    "Act as if what you do makes a difference. It does. - William James", 
+    "Don’t count the days, make the days count. - Muhammad Ali", 
+    "Success is not how high you have climbed, but how you make a positive difference to the world. - Roy T. Bennett", 
+    "Challenges are what make life interesting and overcoming them is what makes life meaningful. - Joshua J. Marine"
 ]
+
 
 # Email configuration
 SMTP_SERVER = "smtp.gmail.com"
 SMTP_PORT = 587
 
 # Get credentials from environment variables
+
 EMAIL = os.getenv("EMAIL")  # Your email from environment variable
 PASSWORD = os.getenv("PASSWORD")  # Your app password from environment variable
-RECIPIENT = os.getenv("RECIPIENT")  # Recipient's email from environment variable
+
+# Get multiple recipients from GitHub Secrets, split by commas
+RECIPIENTS = os.getenv("RECIPIENT").split(",")  # This will split the string into a list of emails
 
 def send_email(quote):
     try:
         # Create the email message with MIME
         msg = MIMEMultipart()
         msg['From'] = EMAIL
-        msg['To'] = RECIPIENT
         msg['Subject'] = "Your Daily Motivation"
         
         # HTML email body with styling
@@ -121,16 +139,18 @@ def send_email(quote):
             </body>
         </html>
         """
-        
+
         # Attach the HTML message to the email
         msg.attach(MIMEText(message, 'html', 'utf-8'))
         
-        # Send the email
+        # Send the email to multiple recipients
         with smtplib.SMTP(SMTP_SERVER, SMTP_PORT) as server:
             server.starttls()
             server.login(EMAIL, PASSWORD)
-            server.sendmail(EMAIL, RECIPIENT, msg.as_string())
-            print("Email sent successfully.")
+            for recipient in RECIPIENTS:
+                msg['To'] = recipient
+                server.sendmail(EMAIL, recipient, msg.as_string())
+                print(f"Email sent successfully to {recipient}.")
 
     except Exception as e:
         print(f"Failed to send email: {e}")
